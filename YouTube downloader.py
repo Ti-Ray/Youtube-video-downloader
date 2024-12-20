@@ -48,4 +48,4 @@ close_btn.pack(padx=10, pady=10)
 
 pg.mainloop()
 
-// Create new version with custom tkinter and better and friendlier user environment.
+#Create new version with custom tkinter and better and friendlier user environment.
