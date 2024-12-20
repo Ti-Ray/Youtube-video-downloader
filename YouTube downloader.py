@@ -47,3 +47,5 @@ close_btn = Button(pg, text="Close", font="bold", command=exit, bg="red")
 close_btn.pack(padx=10, pady=10)
 
 pg.mainloop()
+
+// Create new version with custom tkinter and better and friendlier user environment.
