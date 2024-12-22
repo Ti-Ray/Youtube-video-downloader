@@ -23,7 +23,7 @@ from tkinter import filedialog, messagebox  # Ensure these are imported
 def get_file_path():
     vid_url = video_link.get().strip()
     file_pth = download_path.cget("text")
-            # Check if URL and path are provided
+    # Check if URL and path are provided
     if not vid_url:
         messagebox.showerror("Error", "Please enter a video URL!")
         return
@@ -70,7 +70,7 @@ def down():
             messagebox.showerror("Error", "Please select a file directory!")
             return
 
-        selected_format = format_select.get()  # Get the selected format from the dropdown
+        selected_format = format_select.get()  #Fetch the selected format from the dropdown 
         yt_opts = {
             'outtmpl': f'{file_pth}/%(title)s.%(ext)s',
             'format': 'bestaudio/best' if selected_format == 'MP3' else 'bestvideo+bestaudio/best',
@@ -79,7 +79,7 @@ def down():
             'progress_hooks': [progress_hook],
         }
 
-        # Start the download in a new thread
+        # Starts the download in a new thread
         def download_thread():
             try:
                 progress_text.delete("1.0", "end")
@@ -90,7 +90,7 @@ def down():
                 video_title = info.get("title", "Unknown Title")
                 app.title('Download complete.')
 
-                # Display a success message
+                # Success
                 messagebox.showinfo("Success", f"Download completed: {video_title}")
                 video_link.delete(0, "end")
             except yt_dlp.utils.DownloadError as e:
@@ -98,7 +98,7 @@ def down():
             except Exception as e:
                 messagebox.showerror("Error", f"An unexpected error occurred: {str(e)}")
 
-        # Start the thread
+        # Starts the thread
         threading.Thread(target=download_thread).start()
     except Exception as e:
         messagebox.showerror("Error", f"An unexpected error occurred: {str(e)}")
@@ -140,4 +140,3 @@ close_btn.pack(padx=10, pady=10)
 
 app.mainloop()
 
-#Create new version with custom tkinter and better and friendlier user environment.
